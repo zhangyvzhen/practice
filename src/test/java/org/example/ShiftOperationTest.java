@@ -2,8 +2,6 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
-import java.sql.SQLOutput;
-
 /**
  * 移位运算
  */
@@ -22,6 +20,10 @@ public class ShiftOperationTest {
         // 逻辑右移2位
         int x3 = x >>> 2;
         // 没有单独的逻辑左移符号 <<< , 对于无符号数和补码来说， 逻辑左移 和 算术左移的功能相同，它们共用符号 <<
+            // 逻辑左移: 全部位参与运算，空位补0，左移即低位补0
+            // 算术左移：数据位参与运算，符号位不参与运算，”后半部分“同原码，补0，左移即低位补0
+            // 在学计组时，对算术移位的要求是符号位不变，那是为了使原反补的结论一致，但其实若只针对补码，符号位是否参与运算是没区别的，具体可看笔记（以4bit为例，罗列了左移的所有情况，得出了这个结论）
+            // 算术左移（补码）: 全部位参与运算，空位补0，左移即低位补0 ; 同逻辑右移
         System.out.println(x);
         System.out.println(Integer.toBinaryString(x));
         System.out.println(Integer.toBinaryString(x1));
